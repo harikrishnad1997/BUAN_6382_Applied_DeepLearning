@@ -1,0 +1,14 @@
+
+kaggle.json
+*.jpg
+Data/datasets/FashionMNIST/raw/t10k-images-idx3-ubyte
+*.gz
+Data/datasets/FashionMNIST/raw/t10k-labels-idx1-ubyte
+Data/datasets/FashionMNIST/raw/train-images-idx3-ubyte
+Data/datasets/FashionMNIST/raw/train-labels-idx1-ubyte
+*.JPEG
+*.zip
+*.tgz
+Class/Class - 3/.DS_Store
+.DS_Store
+*.csv
