@@ -1,11 +1,10 @@
 import pandas as pd
 from pathlib import Path
-from torch.utils.data import Dataset
+from torch.utils.data import Dataset, Subset
 from fastai.vision.all import PILImage
 import torch
-import random
-from collections import defaultdict
-
+from sklearn.model_selection import StratifiedShuffleSplit
+import numpy as np
 
 class MyDataset(Dataset):
     """
@@ -106,26 +105,11 @@ class TransformedSubset(Dataset):
         return len(self.subset)
     
 
-def get_stratified_subset(dataset, num_samples, seed=None):
-    if seed is not None:
-        random.seed(seed)
-        
-    # Step 1: Identify label distribution
-    label_to_indices = defaultdict(list)
-    for idx, (_, label) in enumerate(dataset):
-        label_to_indices[label].append(idx)
-    
-    # Step 2: Calculate proportions and initialize subset indices list
-    proportions = {label: len(indices) / len(dataset) for label, indices in label_to_indices.items()}
-    subset_indices = []
-    
-    # Step 3: Sample according to proportion
-    for label, indices in label_to_indices.items():
-        num_samples_for_label = round(proportions[label] * num_samples)
-        subset_indices += random.sample(indices, num_samples_for_label)
-    
-    # Step 4: Combine samples
-    return torch.utils.data.Subset(dataset, subset_indices)
+def get_stratified_subset(dataset, labels, num_samples, seed=None):
+    sss = StratifiedShuffleSplit(n_splits=1, test_size=num_samples, random_state=seed)
+    for _, subset_indices in sss.split(np.zeros(len(labels)), labels):
+        break
+    return Subset(dataset, subset_indices)
 
 
                                                                                                                 
@@ -138,8 +122,13 @@ def get_loaders(img_folder, csv_file=None, train_transform=None, test_transform=
     trainset_transformed = TransformedSubset(trainset, train_transform)
     validset_transformed = TransformedSubset(validset, test_transform) 
     if  small_subset:
-        trainset_transformed = get_stratified_subset(trainset_transformed, num_samples=num_samples_small, seed=seed)
-        validset_transformed = get_stratified_subset(validset_transformed, num_samples=num_samples_small, seed=seed)
+        train_val_labels = train_val_set.labels
+        valid_labels = [train_val_labels[i] for i in validset.indices]
+        train_labels = [train_val_labels[i] for i in trainset.indices]
+        
+
+        trainset_transformed = get_stratified_subset(trainset_transformed, train_labels, num_samples_small, seed=seed)
+        validset_transformed = get_stratified_subset(validset_transformed, valid_labels, num_samples_small, seed=seed)
         
     train_loader = torch.utils.data.DataLoader(trainset_transformed, batch_size=batch_size, shuffle=True)
     valid_loader = torch.utils.data.DataLoader(validset_transformed, batch_size=batch_size, shuffle=False)
