@@ -1,0 +1,21 @@
+batch_size: 128
+display_metrics: true
+epochs: 10
+learning_rate: 0.007
+log_every_n_steps: 1
+log_test_metrics: true
+metric_cls: !!python/name:torchmetrics.classification.accuracy.Accuracy ''
+num_classes: 120
+optimizer_cls: !!python/name:torch.optim.adamw.AdamW ''
+optimizer_params:
+  weight_decay: 1
+scheduler_cls: !!python/name:torch.optim.lr_scheduler.ReduceLROnPlateau ''
+scheduler_options:
+  frequency: 1
+  interval: epoch
+  monitor: val_metric
+scheduler_params:
+  factor: 0.5
+  mode: max
+  patience: 0
+  verbose: true
