@@ -20,3 +20,5 @@ Class/.DS_Store
 *.json
 *.log
 *.wandb
+*.yaml
+*.txt
