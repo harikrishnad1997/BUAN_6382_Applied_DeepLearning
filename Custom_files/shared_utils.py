@@ -136,8 +136,8 @@ def plot_losses_acc(file):
     plt.figure(figsize=(12, 6))
     
     plt.subplot(1, 2, 1)
-    plt.plot(df['step'][df['train_acc'].notna()], df['train_acc'].dropna(), label='Train Accuracy')
-    plt.plot(df['step'][df['val_acc'].notna()], df['val_acc'].dropna(), label='Validation Accuracy')
+    plt.plot(df['step'][df['train_metrics'].notna()], df['train_metrics'].dropna(), label='Train Accuracy')
+    plt.plot(df['step'][df['val_metric'].notna()], df['val_metric'].dropna(), label='Validation Accuracy')
     plt.title('Training and Validation Accuracy')
     plt.xlabel('Steps')
     plt.ylabel('Accuracy')
