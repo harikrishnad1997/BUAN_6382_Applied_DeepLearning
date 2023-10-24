@@ -22,3 +22,5 @@ Class/.DS_Store
 *.wandb
 *.yaml
 *.txt
+*.pyc
+*.pyc
