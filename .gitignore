@@ -24,3 +24,5 @@ Class/.DS_Store
 *.txt
 *.pyc
 *.pyc
+Data/MNIST/raw/train-images-idx3-ubyte
+*.pyc
