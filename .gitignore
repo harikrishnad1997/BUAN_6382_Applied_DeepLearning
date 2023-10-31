@@ -19,8 +19,9 @@ Class/.DS_Store
 *.pyc
 *.json
 *.log
+*hparams.yaml
+*config.yaml
 *.wandb
-*.yaml
 *.txt
 *.pyc
 *.pyc
