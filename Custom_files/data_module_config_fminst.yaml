@@ -1,0 +1,5 @@
+
+data_module:
+  batch_size: 64
+  seed: 42
+  fraction_train: 0.5
