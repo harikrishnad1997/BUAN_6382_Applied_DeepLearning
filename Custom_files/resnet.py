@@ -38,9 +38,8 @@ class SimpleResNet(nn.Module):
             nn.MaxPool2d(kernel_size=3, stride=2, padding=1),      # Output: 16x125x94
             ResidualBlock(16, 32, stride=2),                       # Output: 32x63x47
             ResidualBlock(32, 64, stride=2),                       # Output: 64x32x24
-            ResidualBlock(64, 128, stride=2),                      # Output: 128x16x12
-            ResidualBlock(128, 256, stride=2),                     # Output: 256x8x6
-            nn.AdaptiveAvgPool2d((1, 1))                           # Output: 256x1x1
+            ResidualBlock(64, 256, stride=2),                      # Output: 128x16x12
+            nn.AdaptiveAvgPool2d((1, 1))                           # Output: 128x1x1
         )
         
         self.fc = nn.Linear(256, num_classes)

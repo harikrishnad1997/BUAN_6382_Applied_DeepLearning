@@ -73,7 +73,7 @@ def get_stratified_subset(dataset, num_samples, seed=None):
                                                                                                                
                                                                                                                 
 def get_loaders(data_folder, train_transform=None, test_transform=None,  
-                   fraction_train=0.8, seed=42, batch_size = 256, small_subset = False, num_samples_small=1000
+                   fraction_train=0.5, seed=42, batch_size = 256, small_subset = False, num_samples_small=1000
                    ):
     train_val_set = datasets.FashionMNIST(root=data_folder, train=True, download=True)
     testset = datasets.FashionMNIST(root=data_folder, train=False, download=True, transform=test_transform)
