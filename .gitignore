@@ -22,8 +22,10 @@ Class/.DS_Store
 *hparams.yaml
 *config.yaml
 *.wandb
-*.txt
 *.pyc
 *.pyc
 Data/MNIST/raw/train-images-idx3-ubyte
 *.pyc
+Data/logs/wandb/latest-run
+Data/logs/wandb/run-20231031_201717-x25m0qe4/files/conda-environment.yaml
+Data/logs/wandb/*

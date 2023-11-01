@@ -1,5 +1,5 @@
 optimizer_cls: torch.optim.AdamW
-loss_fn: torch.nn.BCELoss
+loss_fn: torch.nn.CrossEntropyLoss
 metric_cls: torchmetrics.Accuracy
 scheduler_cls: None
 scheduler_options: None      

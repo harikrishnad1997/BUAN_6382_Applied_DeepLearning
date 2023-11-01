@@ -1,5 +1,3 @@
 data_module:
   batch_size: 64
   seed: 42
-  small_subset: False
-  num_samples_small: 1024
