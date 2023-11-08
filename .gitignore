@@ -46,3 +46,4 @@ HW/cifar10/cifar-10-batches-py/data_batch_4
 HW/cifar10/cifar-10-batches-py/data_batch_5
 HW/cifar10/cifar-10-batches-py/test_batch
 Data/logs/wandb/latest-run
+.Rhistory
