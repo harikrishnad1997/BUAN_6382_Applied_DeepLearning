@@ -2,6 +2,7 @@ model_name: vgg16
 pretrained: True
 hidden_size: 4096
 out_features: 10  
+c: 0
 classifier:
   - requires_grad: True
   - requires_grad: False
