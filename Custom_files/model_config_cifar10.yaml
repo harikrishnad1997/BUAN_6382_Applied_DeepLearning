@@ -14,4 +14,4 @@ classifier:
       type: linear
       in_features: 4096
       out_features: 10  # Change this to the desired number of output features
-      bias: true
+      bias: True
