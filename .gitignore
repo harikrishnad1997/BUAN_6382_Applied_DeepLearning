@@ -53,6 +53,5 @@ Data/cifar-10-batches-py/data_batch_3
 Data/cifar-10-batches-py/data_batch_4
 Data/cifar-10-batches-py/data_batch_5
 Data/cifar-10-batches-py/test_batch
-*.DS_Store
 .DS_Store
-.DS_Store
+**/.DS_Store
