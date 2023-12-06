@@ -57,3 +57,5 @@ Data/cifar-10-batches-py/test_batch
 **/.DS_Store
 *.pth
 HW/Harikrishna_Dev_HW_8b.ipynb
+*.pkl
+HW/Harikrishna_Dev_HW_8c.ipynb
